@@ -1,7 +1,8 @@
 class DinosController < ApplicationController
-  before_action :authenticate_user!
 
   def index
+    @dinos = Dino.all
+    authorize @dinos
   end
 
   def show

@@ -1,4 +1,4 @@
-class DinoPolicy < ApplicationPolicy
+class WalkPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
