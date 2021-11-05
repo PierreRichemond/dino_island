@@ -1,4 +1,6 @@
 class DinosController < ApplicationController
+  before_action :authenticate_user!
+
   def index
   end
 
@@ -16,7 +18,7 @@ class DinosController < ApplicationController
 
   private
 
-  def island_param
-    params.require(:island).permit(:name, :location)
+  def user_param
+    params.require(:user).permit(:name)
   end
 end
