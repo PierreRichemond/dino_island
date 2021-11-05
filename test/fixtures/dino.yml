@@ -1,0 +1,11 @@
+raptor:
+
+  name: tony
+  gender: female
+  diet: carnivor
+
+trike:
+  island: one
+  name: john
+  gender: male
+  diet: herbivor
