@@ -1,1 +1,53 @@
 <%= render "banner" %>
+<div class="color-container">
+  <div class="container instructions color-container">
+    <div class="row">
+      <div class="instruction-container col-12 col-sm-6">
+        <h2 class="instruction-text text-center">Ready, Set, Go
+          <br>
+          in few easy steps</h2>
+        <div class="d-flex justify-content-left">
+          <div class="instruction-container-text">
+            <%= image_tag 'profile-photo1.png', class:"avatar-md" %>
+            <p style="font-style:italic;">1. Sign up</p>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center mt-3">
+          <div class="instruction-container-text">
+            <%= image_tag 'triceratops.png', class:"avatar-md" %>
+            <p style="font-style:italic;">2. Select a <br>
+              dinosaur</p>
+          </div>
+        </div>
+        <div class="d-flex justify-content-end mt-3">
+          <div class="instruction-container-text">
+            <%= image_tag 'velociraptor.jpeg', class: "avatar-md" %>
+            <p style="font-style:italic;">3. Have Fun</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6">
+        <%= image_tag 'triceratops.png', id:"happy-child" %>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center mt-3 mb-3">
+      <%= link_to "Start now!", "/dinos", class: 'cta-btn btn btn-success'%>
+    </div>
+  </div>
+</div>
+<div class='container'>
+  <div>
+    <h1 class="text-center">Goals</h1>
+    ZZZ     After exercising, your dino will need to rest for a little while.<br>
+    food    giving food heals your pet (hunger + happiness)<br>
+    KO      when your pet is KO, he doesnt like it, its happiness decrease and its fight efficiency too.<br>
+    implement Experience and levels<br>
+    level max is 20 for both player and dinos<br>
+    get one more dinos every level<br>
+    you always get a choice of 3 dinos with 2new and 1 you already have<br>
+    your dinos don't die but you can discard them to breed a new one<br>
+    every dino have a behavior that impact it's stat<br>
+    dinosaur can lay eggs, dinos from eggs are stronger<br>
+    make tracks for teams of dino<br>
+  </div>
+</div>
