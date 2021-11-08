@@ -1,9 +1,7 @@
 class WalksController < ApplicationController
 
-
   def index
-    @walks = Walk.all
-    authorize @walks
+    @walks = policy_scope(Walk).where(user: current_user)
   end
 
   def show

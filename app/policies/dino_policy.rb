@@ -6,7 +6,7 @@ class DinoPolicy < ApplicationPolicy
     end
   end
 
-  def index
+  def index?
     true
   end
 end
