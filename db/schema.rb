@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_05_033931) do
+ActiveRecord::Schema.define(version: 2021_11_19_064127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,15 @@ ActiveRecord::Schema.define(version: 2021_11_05_033931) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "dino_templates", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "dino_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dino_id"], name: "index_dino_templates_on_dino_id"
+    t.index ["user_id"], name: "index_dino_templates_on_user_id"
+  end
+
   create_table "dinos", force: :cascade do |t|
     t.string "name"
     t.string "type"
@@ -63,6 +72,24 @@ ActiveRecord::Schema.define(version: 2021_11_05_033931) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_tracks_on_user_id"
+  end
+
+  create_table "user_tracks", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "track_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["track_id"], name: "index_user_tracks_on_track_id"
+    t.index ["user_id"], name: "index_user_tracks_on_user_id"
+  end
+
+  create_table "user_walks", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "walk_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_user_walks_on_user_id"
+    t.index ["walk_id"], name: "index_user_walks_on_walk_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -89,6 +116,12 @@ ActiveRecord::Schema.define(version: 2021_11_05_033931) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "dino_templates", "dinos"
+  add_foreign_key "dino_templates", "users"
   add_foreign_key "tracks", "users"
+  add_foreign_key "user_tracks", "tracks"
+  add_foreign_key "user_tracks", "users"
+  add_foreign_key "user_walks", "users"
+  add_foreign_key "user_walks", "walks"
   add_foreign_key "walks", "users"
 end

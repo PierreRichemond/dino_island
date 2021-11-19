@@ -1,5 +1,5 @@
 class Dino < ApplicationRecord
-  belongs_to :user
+  has_many :dino_templates, dependent: :destroy
   validates :name, presence: true
   validates :gender, presence: true
   validates :diet, presence: true

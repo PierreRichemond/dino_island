@@ -1,3 +1,3 @@
 class Track < ApplicationRecord
-  belongs_to :user
+  has_many :user_tracks, dependent: :destroy
 end

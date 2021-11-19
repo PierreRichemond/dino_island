@@ -1,5 +1,5 @@
 class Walk < ApplicationRecord
-  belongs_to :user
+  has_many :user_walks, dependent: :destroy
 
   def index
     @dinos = Dino.all
