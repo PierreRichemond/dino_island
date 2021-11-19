@@ -1,8 +1,7 @@
 class DinosController < ApplicationController
 
   def index
-    @dinos = Dino.all
-    authorize @dinos
+    @dinos = policy_scope(Dino).where(user: current_user)
   end
 
   def show

@@ -2,8 +2,7 @@ class TracksController < ApplicationController
 
 
   def index
-    @tracks = Track.all
-    authorize @tracks
+    @tracks = policy_scope(Track).where(user: current_user)
   end
 
   def show
